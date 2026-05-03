@@ -222,7 +222,7 @@
     /* PROJECT CARDS */
     .projects-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 1.5rem;
     }
     .project-card {
@@ -287,6 +287,108 @@
     }
     .project-link::after { content: '→'; transition: transform 0.2s; }
     .project-card:hover .project-link::after { transform: translateX(4px); }
+
+    /* Featured card (Olist) */
+    .project-card.featured {
+      border-color: rgba(0,180,166,0.35);
+      background: linear-gradient(135deg, var(--surface) 0%, rgba(0,180,166,0.04) 100%);
+    }
+    .project-card.featured::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--teal), var(--amber), transparent);
+    }
+    .featured-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--amber);
+      border: 1px solid rgba(244,163,0,0.4);
+      padding: 0.2rem 0.6rem;
+      margin-bottom: 1rem;
+      background: rgba(244,163,0,0.07);
+    }
+    .project-header { margin-bottom: 1.5rem; }
+    .project-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: start;
+    }
+    .project-findings {
+      border-left: 1px solid var(--border);
+      padding-left: 2rem;
+    }
+    .project-findings-title {
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .project-findings-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .project-findings-list li {
+      font-size: 0.82rem;
+      color: var(--muted);
+      padding-left: 1.1rem;
+      position: relative;
+      line-height: 1.5;
+    }
+    .project-findings-list li::before {
+      content: '↳';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-size: 0.7rem;
+      top: 0.08rem;
+    }
+    .project-links-row {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 1.75rem;
+    }
+    .project-link-btn {
+      font-size: 0.76rem;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      border: 1px solid rgba(0,180,166,0.35);
+      padding: 0.4rem 0.9rem;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .project-link-btn:hover {
+      border-color: var(--teal);
+      background: var(--teal-dim);
+    }
+    .project-link-btn.secondary {
+      color: var(--amber);
+      border-color: rgba(244,163,0,0.35);
+    }
+    .project-link-btn.secondary:hover {
+      border-color: var(--amber);
+      background: rgba(244,163,0,0.07);
+    }
+    @media (max-width: 640px) {
+      .project-body { grid-template-columns: 1fr; }
+      .project-findings {
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-left: 0;
+        padding-top: 1.5rem;
+      }
+    }
 
     /* CERT */
     .cert-card {
@@ -453,7 +555,7 @@
               <div class="stat-label">Rows analyzed</div>
             </div>
             <div>
-              <div class="stat-number">2</div>
+              <div class="stat-number">3</div>
               <div class="stat-label">Case studies</div>
             </div>
             <div>
@@ -488,8 +590,49 @@
     <h2 class="section-title fade-in">Case Studies</h2>
     <div class="projects-grid">
 
+      <!-- OLIST — featured card -->
+      <div class="project-card featured fade-in">
+        <div class="project-header">
+          <div class="featured-badge">Original Work</div>
+          <div class="project-num">01</div>
+          <h3 class="project-title">Olist Seller Performance Monitor</h3>
+        </div>
+        <div class="project-body">
+          <div class="project-left">
+            <p class="project-desc">
+              Built an end-to-end operational monitoring tool for Olist's Seller Success team —
+              covering 96K delivered orders, 3K sellers, and 71 product categories across Brazil.
+              The pipeline segments sellers into performance tiers and surfaces who needs
+              intervention, why they're underperforming, and what separates top performers from the rest.
+            </p>
+            <div class="project-meta">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">pandas</span>
+              <span class="project-tag">seaborn</span>
+              <span class="project-tag">Tableau</span>
+              <span class="project-tag">96K orders</span>
+              <span class="project-tag">3K sellers</span>
+            </div>
+            <div class="project-links-row">
+              <a href="https://github.com/Giacoap/olist-seller-performance" target="_blank" class="project-link-btn">GitHub Repo →</a>
+              <a href="https://public.tableau.com/app/profile/giacomo.apicella/viz/OlistSellerPerformanceMonitor/olist_seller_performance_dashboard?publish=yes" target="_blank" class="project-link-btn secondary">Live Dashboard →</a>
+            </div>
+          </div>
+          <div class="project-findings">
+            <div class="project-findings-title">Key findings</div>
+            <ul class="project-findings-list">
+              <li>Dispatch speed is the dominant driver of review scores — top sellers hand off packages twice as fast as low-performers</li>
+              <li>High GMV does not predict quality: the 2nd-largest seller by revenue sits in the Low tier with a 25% negative review rate</li>
+              <li>Freight cost is essentially uncorrelated with satisfaction (Spearman r = −0.047) — delivery reliability matters far more</li>
+              <li>Category problems split into two types: operational failures vs. structural mismatches — each requiring a different intervention</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- CYCLISTIC -->
       <a class="project-card fade-in" href="https://github.com/Giacoap/cyclistic-bike-share" target="_blank">
-        <div class="project-num">01</div>
+        <div class="project-num">02</div>
         <h3 class="project-title">Cyclistic Bike-Share Analysis</h3>
         <p class="project-desc">
           Analyzed 5.1 million bike-share trips (Apr 2025 – Mar 2026) to identify
@@ -506,8 +649,9 @@
         <div class="project-link">View on GitHub</div>
       </a>
 
+      <!-- BELLABEAT -->
       <a class="project-card fade-in" href="https://github.com/Giacoap/bellabeat-smart-device" target="_blank">
-        <div class="project-num">02</div>
+        <div class="project-num">03</div>
         <h3 class="project-title">Bellabeat Smart Device Analysis</h3>
         <p class="project-desc">
           Analyzed FitBit fitness tracker data using a Python + SQL hybrid workflow
