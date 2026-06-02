@@ -555,11 +555,11 @@
               <div class="stat-label">Rows analyzed</div>
             </div>
             <div>
-              <div class="stat-number">3</div>
+              <div class="stat-number">4</div>
               <div class="stat-label">Case studies</div>
             </div>
             <div>
-              <div class="stat-number">15</div>
+              <div class="stat-number">32</div>
               <div class="stat-label">Visualizations</div>
             </div>
             <div>
@@ -630,9 +630,52 @@
         </div>
       </div>
 
+      <!-- RAVENSTACK — featured card -->
+      <div class="project-card featured fade-in">
+        <div class="project-header">
+          <div class="featured-badge">Original Work</div>
+          <div class="project-num">02</div>
+          <h3 class="project-title">RavenStack — SaaS Churn &amp; Retention Analysis</h3>
+        </div>
+        <div class="project-body">
+          <div class="project-left">
+            <p class="project-desc">
+              Built a churn-risk monitoring tool for a B2B SaaS pilot — 500 accounts over a
+              24-month window. Combines cohort retention, pre-churn behavioral signals, and
+              segment-level LTV, then scores every active account with a logistic-regression
+              risk model so a VP of Customer Success can see who is at risk, why, and where
+              revenue is most exposed.
+            </p>
+            <div class="project-meta">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">pandas</span>
+              <span class="project-tag">scikit-learn</span>
+              <span class="project-tag">seaborn</span>
+              <span class="project-tag">Tableau</span>
+              <span class="project-tag">500 accounts</span>
+              <span class="project-tag">24-mo pilot</span>
+            </div>
+            <div class="project-links-row">
+              <a href="https://github.com/Giacoap/ravenstack-saas-churn" target="_blank" class="project-link-btn">GitHub Repo →</a>
+              <a href="https://public.tableau.com/app/profile/giacomo.apicella/viz/ravenstack-dashboard/RiskList?publish=yes" target="_blank" class="project-link-btn secondary">Live Dashboard →</a>
+              <a href="https://github.com/Giacoap/ravenstack-saas-churn/blob/master/02_writeup.md" target="_blank" class="project-link-btn">Write-up →</a>
+            </div>
+          </div>
+          <div class="project-findings">
+            <div class="project-findings-title">Key findings</div>
+            <ul class="project-findings-list">
+              <li>Early tenure is the dominant churn signal — the first-month cohort drop (15.7pp) and short tenure outweigh every other predictor in the risk model</li>
+              <li>Churners show higher product usage in their final 60 days than retained accounts — disengagement isn't the warning sign; usage density relative to tenure is</li>
+              <li>Gross revenue retention holds at 97.8% even as roughly half of logos churn by month 12 — revenue concentrates in a stable, multi-subscription Enterprise base</li>
+              <li>Ads-acquired accounts retain best (57.7% churn) while organic churns worst (73.4%) despite the highest LTV — channel quality doesn't track acquisition volume</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
       <!-- CYCLISTIC -->
       <a class="project-card fade-in" href="https://github.com/Giacoap/cyclistic-bike-share" target="_blank">
-        <div class="project-num">02</div>
+        <div class="project-num">03</div>
         <h3 class="project-title">Cyclistic Bike-Share Analysis</h3>
         <p class="project-desc">
           Analyzed 5.1 million bike-share trips (Apr 2025 – Mar 2026) to identify
@@ -651,7 +694,7 @@
 
       <!-- BELLABEAT -->
       <a class="project-card fade-in" href="https://github.com/Giacoap/bellabeat-smart-device" target="_blank">
-        <div class="project-num">03</div>
+        <div class="project-num">04</div>
         <h3 class="project-title">Bellabeat Smart Device Analysis</h3>
         <p class="project-desc">
           Analyzed FitBit fitness tracker data using a Python + SQL hybrid workflow
